@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faWater, faCamera, faFire, faFaucet, faWrench, faTools, faGasPump} from '@fortawesome/free-solid-svg-icons'
-library.add(faWater, faCamera, faFire, faFaucet, faWrench, faTools, faGasPump)
+import { faWater, faCamera, faFire, faFaucet, faWrench, faTools, faGasPump, faPhone, faEnvelope, faIdCard} from '@fortawesome/free-solid-svg-icons'
+library.add(faWater, faCamera, faFire, faFaucet, faWrench, faTools, faGasPump, faPhone, faEnvelope, faIdCard)
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
