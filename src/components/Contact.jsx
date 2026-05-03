@@ -37,12 +37,12 @@ const Contact = () => {
               </p>
               <a href="tel:3233297204" className="btn">Call now</a>
             </div>
-            <form ref={form} onSubmit={sendEmail} className="contact__form"></form>
+            <form ref={form} onSubmit={sendEmail} className="contact__form">
               <input type="text" name="user_name" placeholder="Your Name" className="contact__input" />
               <input type="tel" name="user_phone" placeholder="Your Phone" className="contact__input" />
               <textarea name="message" placeholder="Message" className="contact__textarea"></textarea>
               <button className="btn">Send Message</button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
