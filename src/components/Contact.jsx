@@ -17,7 +17,7 @@ const Contact = () => {
       .then(
         () => {
           setStatus("success");
-          e.target.rest()
+          e.target.reset()
         },
         (error) => {
           setStatus("error");
