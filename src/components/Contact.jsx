@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import BgImage from "../assets/Plumbingbackground.JPEG"
 
 const Contact = () => {
   const form = useRef();
@@ -26,7 +27,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact">
+    <section id="contact" style={{ backgroundImage: `url(${BgImage})`}}>
       <div className="container">
         <div className="row">
           <h2 className="section__title">Get in touch</h2>

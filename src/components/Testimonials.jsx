@@ -75,39 +75,35 @@ const Testimonials = () => {
             ))}
           </div>
 
-          {/* Reviews */}
           {loading ? (
-            <p className="reviews__empty">Loading reviews...</p>
-          ) : (
-            <div className="reviews__container">
-              {filteredReviews.length === 0 ? (
-                <p className="reviews__empty">
-                  No reviews for this rating yet.
-                </p>
-              ) : (
-                filteredReviews.map((review) => (
-                  <div className="review__card" key={review.id}>
-                    <div className="review__stars">
-                      {new Array(5).fill(0).map((_, i) => (
-                        <FontAwesomeIcon
-                          key={i}
-                          icon={faStar}
-                          className={
-                            i < review.rating ? "star--filled" : "star--empty"
-                          }
-                        />
-                      ))}
-                    </div>
-                    <p className="review__comment">"{review.comment}"</p>
-                    <p className="review__name">— {review.name}</p>
-                    <p className="review__date">{review.date}</p>
-                  </div>
-                ))
-              )}
+  <p className="reviews__empty">Loading reviews...</p>
+) : (
+  <div className="reviews__container">
+    {filteredReviews.length === 0 ? (
+      <p className="reviews__empty">No reviews for this rating yet.</p>
+    ) : (
+      <div className="reviews__track">
+        {filteredReviews.map((review) => (
+          <div className="review__card" key={review.id}>
+            <div className="review__stars">
+              {new Array(5).fill(0).map((_, i) => (
+                <FontAwesomeIcon
+                  key={i}
+                  icon={faStar}
+                  className={i < review.rating ? 'star--filled' : 'star--empty'}
+                />
+              ))}
             </div>
-          )}
+            <p className="review__comment">"{review.comment}"</p>
+            <p className="review__name">— {review.name}</p>
+            <p className="review__date">{review.date}</p>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+)}
 
-          {/* Add Review Form */}
           <div className="review__form--wrapper">
             <h2 className="review__form--title">Leave a Review</h2>
             <form onSubmit={submitReview} className="review__form">
