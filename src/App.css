@@ -151,6 +151,8 @@ a {
     object-fit: cover;
     object-position: 50% 20%;
     border: 4px solid rgb(5, 124, 171);
+    user-select: none;
+    pointer-events: none;
 }
 
 .hero__text {
