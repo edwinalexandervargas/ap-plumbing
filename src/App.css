@@ -261,7 +261,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: calc(33% / -24px);
+    width: calc(33% -24px);
     padding: 24px;
     text-align: center;
     border: 2px solid #e0e0e0;
