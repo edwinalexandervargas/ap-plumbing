@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import APLogo from '../assets/AP-Logo-removebg-preview.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 const Nav = () => {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -28,7 +28,7 @@ const Nav = () => {
         <div className={`menu__sidebar ${menuOpen ? 'menu--open' : ''}`}>
             {menuOpen &&(
             <button className="menu__close" onClick={() => setMenuOpen(false)}>
-                <FontAwesomeIcon icon={faBars} />
+                <FontAwesomeIcon icon={faTimes} />
             </button>
             )}
             <ul className="menu__links">
