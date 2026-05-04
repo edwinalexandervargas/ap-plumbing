@@ -71,6 +71,7 @@ const Contact = () => {
               >
                 {status === "loading" ? "Sending..." : "Send Message"}
               </button>
+              <div className="contact__message">
               {status === "success" && (
                 <p className="contact__success">
                   Thanks for the message! I'll reach out as soon as possible.
@@ -81,6 +82,7 @@ const Contact = () => {
                   Something went wrong. Please try again or call directly.
                 </p>
               )}
+              </div>
             </form>
           </div>
         </div>
