@@ -708,6 +708,9 @@ footer {
         padding: 24px;
     }
 
-   
+   .filter__btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
 
 }
