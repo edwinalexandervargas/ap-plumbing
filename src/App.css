@@ -109,8 +109,8 @@ a {
     font-size: 24px;
     cursor: pointer;
     position: fixed;
-    top: 50px;
-    right: 40px;
+    top: 56px;
+    right: 56px;
     z-index: 1000;
 }
 
@@ -362,6 +362,10 @@ footer {
 
 
 @media (max-width: 768px) {
+
+    .nav__logo {
+        margin-left: -16px;
+    }
 
     .btn__hamburger {
         display: block;
