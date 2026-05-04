@@ -17,7 +17,7 @@ const Contact = () => {
       .then(
         () => {
           setStatus("success");
-          e.target.reset()
+          e.target.reset();
         },
         (error) => {
           setStatus("error");
@@ -52,17 +52,31 @@ const Contact = () => {
                 name="user_name"
                 placeholder="Your Name"
                 className="contact__input"
+                required
               />
               <input
                 type="tel"
                 name="user_phone"
                 placeholder="Your Phone"
                 className="contact__input"
+                required
+                onChange={(e) => {
+                  let value = e.target.value.replace(/\D/g, "");
+                  if (value.length <= 3) {
+                    value = `(${value}`;
+                  } else if (value.length <= 6) {
+                    value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+                  } else {
+                    value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6, 10)}`;
+                  }
+                  e.target.value = value;
+                }}
               />
               <textarea
                 name="message"
                 placeholder="Message"
                 className="contact__textarea"
+                required
               ></textarea>
               <button
                 type="submit"
@@ -72,16 +86,16 @@ const Contact = () => {
                 {status === "loading" ? "Sending..." : "Send Message"}
               </button>
               <div className="contact__message">
-              {status === "success" && (
-                <p className="contact__success">
-                  Thanks for the message! I'll reach out as soon as possible.
-                </p>
-              )}
-              {status === "error" && (
-                <p className="contact__error">
-                  Something went wrong. Please try again or call directly.
-                </p>
-              )}
+                {status === "success" && (
+                  <p className="contact__success">
+                    Thanks for the message! I'll reach out as soon as possible.
+                  </p>
+                )}
+                {status === "error" && (
+                  <p className="contact__error">
+                    Something went wrong. Please try again or call directly.
+                  </p>
+                )}
               </div>
             </form>
           </div>
