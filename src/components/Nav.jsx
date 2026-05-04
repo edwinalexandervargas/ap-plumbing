@@ -26,9 +26,11 @@ const Nav = () => {
         </div>
 
         <div className={`menu__sidebar ${menuOpen ? 'menu--open' : ''}`}>
+            {menuOpen &&(
             <button className="menu__close" onClick={() => setMenuOpen(false)}>
                 <FontAwesomeIcon icon={faBars} />
             </button>
+            )}
             <ul className="menu__links">
                 <li className="menu__link"><a href="#about" onClick={() =>setMenuOpen(false)}>About</a></li>
                 <li className="menu__link"><a href="#services" onClick={() =>setMenuOpen(false)}>Services</a></li>

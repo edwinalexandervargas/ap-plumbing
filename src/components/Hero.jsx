@@ -8,7 +8,7 @@ const Hero = () => {
           <div className="hero__text">
             <h1 className="hero__title">Fast & Reliable Plumbing Services</h1>
             <p className="hero__sub">Servicing Los Angeles & San Gabriel Valley</p>
-            <a href="#contact" className="hero__btn">Get a Free Quote</a>
+            <a href="#contact" className="btn hero__btn">Get a Free Quote</a>
           </div>
         </div>
       </div>
