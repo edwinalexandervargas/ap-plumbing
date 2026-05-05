@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
 import {
   collection,
   addDoc,
   getDocs,
   orderBy,
   query,
+  deleteDoc,
+  doc,
 } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const Testimonials = () => {
@@ -18,6 +21,7 @@ const Testimonials = () => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -28,10 +32,19 @@ const Testimonials = () => {
       setLoading(false);
     };
     fetchReviews();
+
+    onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
   }, []);
 
   const filteredReviews =
     filter === 0 ? reviews : reviews.filter((r) => r.rating === filter);
+
+  const deleteReview = async (id) => {
+    await deleteDoc(doc(db, "reviews", id));
+    setReviews(reviews.filter((r) => r.id !== id));
+  };
 
   const submitReview = async (e) => {
     e.preventDefault();
@@ -76,34 +89,43 @@ const Testimonials = () => {
           </div>
 
           {loading ? (
-  <p className="reviews__empty">Loading reviews...</p>
-) : (
-  <div className="reviews__container">
-    {filteredReviews.length === 0 ? (
-      <p className="reviews__empty">No reviews for this rating yet.</p>
-    ) : (
-      <div className="reviews__track">
-        {filteredReviews.map((review) => (
-          <div className="review__card" key={review.id}>
-            <div className="review__stars">
-              {new Array(5).fill(0).map((_, i) => (
-                <FontAwesomeIcon
-                  key={i}
-                  icon={faStar}
-                  className={i < review.rating ? 'star--filled' : 'star--empty'}
-                />
-              ))}
+            <p className="reviews__empty">Loading reviews...</p>
+          ) : (
+            <div className="reviews__container">
+              {filteredReviews.length === 0 ? (
+                <p className="reviews__empty">No reviews for this rating yet.</p>
+              ) : (
+                <div className="reviews__track">
+                  {filteredReviews.map((review) => (
+                    <div className="review__card" key={review.id}>
+                      <div className="review__stars">
+                        {new Array(5).fill(0).map((_, i) => (
+                          <FontAwesomeIcon
+                            key={i}
+                            icon={faStar}
+                            className={i < review.rating ? "star--filled" : "star--empty"}
+                          />
+                        ))}
+                      </div>
+                      <p className="review__comment">"{review.comment}"</p>
+                      <p className="review__name">— {review.name}</p>
+                      <p className="review__date">{review.date}</p>
+                      {user && (
+                        <button
+                          className="review__delete"
+                          onClick={() => deleteReview(review.id)}
+                        >
+                          Delete
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
-            <p className="review__comment">"{review.comment}"</p>
-            <p className="review__name">— {review.name}</p>
-            <p className="review__date">{review.date}</p>
-          </div>
-        ))}
-      </div>
-    )}
-  </div>
-)}
+          )}
 
+          {/* Add Review Form */}
           <div className="review__form--wrapper">
             <h2 className="review__form--title">Leave a Review</h2>
             <form onSubmit={submitReview} className="review__form">
