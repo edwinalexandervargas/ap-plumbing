@@ -662,6 +662,11 @@ footer {
         flex-direction: column;
     }
 
+    .angel__img {
+        height: 250px;
+        width: 250px;
+    }
+
     .hero__sub {
         font-size: 20px;
     }
