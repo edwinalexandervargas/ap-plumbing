@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# AP Plumbing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A professional business website built for AP Plumbing, a licensed plumbing company servicing Los Angeles & San Gabriel Valley. The site allows customers to learn about services, submit reviews, and get in touch — while giving the owner a subtle admin panel to manage reviews.
 
-## Available Scripts
+![Hero](https://github.com/user-attachments/assets/1a93e7c2-446f-4ebf-b30a-0e26c6b5a150)
 
-In the project directory, you can run:
+![Reviews](https://github.com/user-attachments/assets/cace40c7-101a-4681-9d40-ccf4f676bab9)
+![Contact](https://github.com/user-attachments/assets/eeffd5f4-8fa7-4382-b22a-4b522dc9cc48)
 
-### `npm start`
+🔗 [Live Demo](https://ap-plumbing.vercel.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> **Note:** This is a real client project. The admin login is visible in the footer but intentionally subtle — it uses a low opacity link to keep it discreet for the business owner.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Responsive single page layout with smooth scroll navigation
+- Services section with clickable modal popups for each service
+- Customer review system — customers can submit reviews without an account
+- Star rating filter to browse reviews by rating
+- Admin login subtly placed in the footer — owner can log in and delete reviews
+- Contact form with phone number auto-formatting powered by EmailJS
+- QR code generated for the owner to share the site with customers
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+- **React** — component-based UI library
+- **Firebase Authentication** — admin login for the business owner
+- **Firestore** — real time database for storing and retrieving customer reviews
+- **EmailJS** — contact form email delivery without a backend
+- **Font Awesome** — dynamic icons rendered from a data array
+- **CSS** — vanilla CSS with responsive design and animations
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How the Review System Works
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Any customer can submit a review without creating an account
+- Reviews are stored in Firestore and displayed in real time
+- The owner logs in via a subtle admin link in the footer
+- When logged in, a delete button appears on each review card
+- Only the authenticated owner can delete reviews
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+### Prerequisites
+- Node.js installed on your machine
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository
+   ```bash
+   git clone https://github.com/edwinalexandervargas/ap-plumbing.git
+   cd ap-plumbing
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Install dependencies
+   ```bash
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Create a `.env` file in the root of the project
+   ```
+   REACT_APP_FIREBASE_API_KEY=your_api_key
+   REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
+   REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+   REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+   REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+   REACT_APP_FIREBASE_APP_ID=your_app_id
+   ```
 
-## Learn More
+4. Start the development server
+   ```bash
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## What I Learned
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Implementing Firebase Authentication for role-based access (admin vs public)
+- Storing and retrieving real time data with Firestore
+- Sending emails from a frontend app without a backend using EmailJS
+- Rendering dynamic components by mapping over a data array
+- Building a modal system with React state
+- Responsive CSS layouts with media queries
+- Thinking beyond code — generating a QR code for real world client use
