@@ -7,9 +7,9 @@ A professional business website built for AP Plumbing, a licensed plumbing compa
 ![Reviews](https://github.com/user-attachments/assets/cace40c7-101a-4681-9d40-ccf4f676bab9)
 ![Contact](https://github.com/user-attachments/assets/eeffd5f4-8fa7-4382-b22a-4b522dc9cc48)
 
-🔗 [Live Demo](https://ap-plumbing.vercel.app/)
+🔗 [Live Demo](https://applumbingrooter.com)
 
-> **Note:** This is a real client project. The admin login is visible in the footer but intentionally subtle — it uses a low opacity link to keep it discreet for the business owner.
+> **Note:** This is a live production website for a real client. The admin login is visible in the footer but intentionally subtle — it uses a low opacity link to keep it discreet for the business owner.
 
 ## Features
 
