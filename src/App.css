@@ -443,6 +443,9 @@ a {
     margin: 12px 0;
     color: #555;
     font-style: italic;
+    overflow-y: auto;
+    max-height: 180px;
+    scrollbar-width: none;
 }
 
 .review__name {
